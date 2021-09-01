@@ -2,6 +2,7 @@ package prompt
 
 import (
 	"bytes"
+	"fmt"
 	"os"
 	"time"
 
@@ -114,6 +115,7 @@ func (p *Prompt) Run() {
 
 func (p *Prompt) feed(b []byte) (shouldExit bool, exec *Exec) {
 	key := GetKey(b)
+	fmt.Println("byte %v - key %v", b, key)
 	p.buf.lastKeyStroke = key
 	// completion
 	completing := p.completion.Completing()
