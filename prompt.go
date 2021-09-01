@@ -115,7 +115,6 @@ func (p *Prompt) Run() {
 
 func (p *Prompt) feed(b []byte) (shouldExit bool, exec *Exec) {
 	key := GetKey(b)
-	fmt.Println(fmt.Sprintf("byte %v - key %v", b, key))
 	p.buf.lastKeyStroke = key
 	// completion
 	completing := p.completion.Completing()
@@ -277,6 +276,7 @@ func (p *Prompt) readBuffer(bufCh chan []byte, stopCh chan struct{}) {
 			return
 		default:
 			if b, err := p.in.Read(); err == nil && !(len(b) == 1 && b[0] == 0) {
+				fmt.Println(fmt.Sprintf("byte %v", b))
 				bufCh <- b
 			}
 		}
