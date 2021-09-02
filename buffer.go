@@ -1,6 +1,7 @@
 package prompt
 
 import (
+	"fmt"
 	"log"
 	"strings"
 )
@@ -40,6 +41,7 @@ func (b *Buffer) DisplayCursorPosition() int {
 
 // InsertText insert string from current line.
 func (b *Buffer) InsertText(v string, overwrite bool, moveCursor bool) {
+	fmt.Println(fmt.Sprintf("->%s<-", v))
 	or := []rune(b.Text())
 	oc := b.cursorPosition
 
