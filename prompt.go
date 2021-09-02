@@ -110,6 +110,7 @@ func (p *Prompt) Run() {
 }
 
 func (p *Prompt) feed(b []byte) (shouldExit bool, exec *Exec) {
+	fmt.Println(fmt.Sprintf("[Prompt.feed] byte %v", b))
 	key := p.in.GetKey(b)
 
 	// completion
