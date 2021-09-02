@@ -1,6 +1,7 @@
 package prompt
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/c-bata/go-prompt/internal/debug"
@@ -43,6 +44,7 @@ func (b *Buffer) DisplayCursorPosition() int {
 
 // InsertText insert string from current line.
 func (b *Buffer) InsertText(v string, overwrite bool, moveCursor bool) {
+	fmt.Println(fmt.Sprintf("->%s<-", v))
 	or := []rune(b.Text())
 	oc := b.cursorPosition
 
